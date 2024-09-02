@@ -1,0 +1,27 @@
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espacio entre el botón y el nombre del archivo */
+}
+
+input[type="file"] {
+  display: none; /* Oculta el input de tipo file */
+}
+
+.mat-dialog-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+span {
+  font-size: 14px;
+  color: #555; /* Color para el nombre del archivo */
+}

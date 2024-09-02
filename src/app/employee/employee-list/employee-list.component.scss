@@ -1,0 +1,25 @@
+.table-container {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.table-container table {
+  width: 100%;
+}
+
+.mat-cell {
+  display: flex;
+  justify-content: center;
+}
+
+.table-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  max-width: 95%;
+}
+
+.mat-table {
+  width: 100%;
+}
