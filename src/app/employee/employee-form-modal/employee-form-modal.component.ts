@@ -59,7 +59,6 @@ export class EmployeeFormModalComponent {
           console.log(error);
           this.dialogRef.close(formData);
           this.showError(error.error.message);
-
         })
     }
   }
