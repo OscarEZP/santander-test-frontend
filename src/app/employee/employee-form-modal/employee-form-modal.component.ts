@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AlertDialogData, AlertDialogComponent } from 'src/app/shared/alert-dialog/alert-dialog.component';
+import { EmployeeService } from '../../services/employee.service';
+import { Employee } from '../models/employee';
 
 @Component({
   selector: 'app-employee-form-modal',
@@ -17,6 +20,8 @@ export class EmployeeFormModalComponent {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<EmployeeFormModalComponent>,
     public dialog: MatDialog,
+    public employeeService: EmployeeService,
+    public snackBarRef: MatSnackBar
   ) {
     this.employeeForm = this.fb.group({
       name: ['', Validators.required],
@@ -46,7 +51,11 @@ export class EmployeeFormModalComponent {
       formData.append('name', this.employeeForm.get('name')?.value);
       formData.append('surname', this.employeeForm.get('surname')?.value);
       formData.append('file', this.file);
-      this.dialogRef.close(formData);
+      this.employeeService.uploadEmployeeData(formData)
+        .subscribe((response: Employee) => {
+          this.dialogRef.close(formData);
+          this.snackBarRef.open(`Employee ${response.name} ${response.surname} was created`, 'Close');
+        })
     }
   }
 
