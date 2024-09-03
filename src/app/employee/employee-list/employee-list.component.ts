@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { AlertDialogComponent, AlertDialogData } from 'src/app/shared/alert-dialog/alert-dialog.component';
 import { ConfirmDialogComponent, ConfirmDialogData } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
 import { EmployeeFormModalComponent } from '../employee-form-modal/employee-form-modal.component';
 import { Employee, SENIORITY } from '../models/employee';
@@ -66,6 +67,14 @@ export class EmployeeListComponent {
             console.log(result, 'RESULTADO')
           })
       }
+    });
+  }
+
+  showError(message: string): void {
+    const dialogData: AlertDialogData = { message };
+    this.dialog.open(AlertDialogComponent, {
+      width: '300px',
+      data: dialogData
     });
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AlertDialogData, AlertDialogComponent } from 'src/app/shared/alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-employee-form-modal',
@@ -14,7 +15,8 @@ export class EmployeeFormModalComponent {
 
   constructor(
     private fb: FormBuilder,
-    private dialogRef: MatDialogRef<EmployeeFormModalComponent>
+    private dialogRef: MatDialogRef<EmployeeFormModalComponent>,
+    public dialog: MatDialog,
   ) {
     this.employeeForm = this.fb.group({
       name: ['', Validators.required],
@@ -52,5 +54,13 @@ export class EmployeeFormModalComponent {
     this.employeeForm.reset();
     this.file = null;
     this.dialogRef.close();
+  }
+
+  showError(message: string): void {
+    const dialogData: AlertDialogData = { message };
+    this.dialog.open(AlertDialogComponent, {
+      width: '300px',
+      data: dialogData
+    });
   }
 }
