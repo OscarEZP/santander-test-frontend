@@ -55,6 +55,11 @@ export class EmployeeFormModalComponent {
         .subscribe((response: Employee) => {
           this.dialogRef.close(formData);
           this.snackBarRef.open(`Employee ${response.name} ${response.surname} was created`, 'Close');
+        }, (error: { error: { message: string } }) => {
+          console.log(error);
+          this.dialogRef.close(formData);
+          this.showError(error.error.message);
+
         })
     }
   }
