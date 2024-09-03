@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://your-production-api.com',
+  apiUrl: 'https://santander-test-dot-byebye-travel-dev.ew.r.appspot.com',
 };
