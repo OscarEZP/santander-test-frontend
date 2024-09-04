@@ -14,7 +14,6 @@ export class EmployeeService {
   constructor(private http: HttpClient) {}
 
   uploadEmployeeData(formData: FormData): Observable<any> {
-    console.log(this.apiUrl, 'URL')
     return this.http.post(`${this.apiUrl}`, formData);
   }
 
