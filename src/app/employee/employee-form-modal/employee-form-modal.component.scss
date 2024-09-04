@@ -7,11 +7,10 @@
 .form-field {
   display: flex;
   align-items: center;
-  gap: 16px; /* Espacio entre el botón y el nombre del archivo */
-}
+  gap: 16px; 
 
 input[type="file"] {
-  display: none; /* Oculta el input de tipo file */
+  display: none;
 }
 
 .mat-dialog-actions {
@@ -23,5 +22,5 @@ input[type="file"] {
 
 span {
   font-size: 14px;
-  color: #555; /* Color para el nombre del archivo */
+  color: #555; 
 }
